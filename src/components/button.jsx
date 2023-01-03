@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Button = () => {
+const Button = (props) => {
     
     const handleClick = () => {
-        console.log("me diste click")
+        console.log("contraseña correcta")
 
     }
+    
     return (
         <div className="p-3" >
             <div action="form-group">
-            <button id="btn" type="submit" className="btn btn-primary disabled" onClick={(handleClick)}>Submit</button>
+            <button id="btn" type="submit" className={props.className} onClick={(handleClick)}>Submit</button>
             </div>
         </div>
         )
