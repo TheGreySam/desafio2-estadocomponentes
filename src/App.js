@@ -4,13 +4,19 @@ import Button from './components/button';
 import Footer from './components/footer';
 import './App.css';
 
+
 function App() {
+
   return (
     <div className="App">
-      <Header/>
-      <Input/>
-      <Button/>
-      <Footer/>
+      <Header />
+      <div className='container'>
+        <div className='m-5 pb-5'>
+          <Input />
+          <Button />
+        </div>
+      </div>
+      <Footer />
     </div>
   );
 }
