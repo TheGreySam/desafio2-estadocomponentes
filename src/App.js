@@ -7,23 +7,43 @@ import './App.css';
 
 
 function App() {
-  let [nombre, setNombre] = useState("");
-    let [contraseña, setContraseña] = useState("");
-     let [mostrar, toggleMostrar] = React.useState(true);
+  let [name, setName] = useState("");
+    let [password, setPassword] = useState("");
+    let messageName = ""
+    let messagePassword = ""
+    let welcomeMsg = ""
+     let classPassword = ""
+     let className = ""
      let clase = "btn btn-primary disabled";
 
-     let validarContraseña = (e) => {
+     let validatePassword = (e) => {
          //e.preventDefault();
-         if(contraseña === '252525') {
+         
+         if(name === "") {
+          className="bg-warning form-control text-white"
+          messageName="Ingresa tu nombre"
+         }
+         if(password === '252525') {
              //{mostrar && <div><Button /></div>}
              //console.log('contraseña correcta')
              clase = "btn btn-primary"
+             classPassword="bg-success form-control text-white"
+             messagePassword = "contraseña correcta"
+             
+             
+             welcomeMsg= `bienvenido ${name}, ya puedes ingresar`
+         } 
+         else if(password === '') {
+          messagePassword = ""
          } else {
              //alert('Error: contraseña incorrecta')
-             clase = "btn btn-primary disabled"
+             classPassword="bg-danger form-control text-white"
+             messagePassword = "contraseña incorrecta"
+             clase = "btn btn-primary-outline disabled"
+             
          }
      } 
-     validarContraseña()
+     validatePassword()
 
   return (
     <div className="App">
@@ -31,10 +51,19 @@ function App() {
       <div className='container'>
         <div className='m-5 pb-5'>
           <Input 
-          nombre= {(e) => setNombre(e.target.value)}
-          contraseña= {(e) => setContraseña(e.target.value)}/>
+          name= {(e) => setName(e.target.value)}
+          password= {(e) => setPassword(e.target.value)}
+          class1= {className}
+          class2= {classPassword}
+          message1= {messageName}
+          message2= {messagePassword}
+          />
+          
+          
           <Button
-          className = {clase}/> 
+          name= {(e) => setName(e.target.value)}
+          className = {clase}
+          welcome= {welcomeMsg}/> 
         </div>
       </div>
       <Footer />
